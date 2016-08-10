@@ -177,7 +177,7 @@ cdef class Parser:
 
             action = self.moves.c[guess]
             if not eg.is_valid[guess]:
-                with gil:
+                with nogil:
                     move_name = self.moves.move_name(action.move, action.label)
                     print('invalid action:', move_name)
                 return 1
